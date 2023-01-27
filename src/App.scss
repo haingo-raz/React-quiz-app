@@ -1,0 +1,126 @@
+//Color palette 
+$light-blue: #B9F3FC;
+$blue-sky: #AEE2FF;
+$blue-sea: #93C6E7;
+$blue: rgb(146, 146, 183);
+$pink: #FEDEFF;
+$white: #fff;
+
+
+//Font size
+$logoLg: 120px;
+$titleLg : 40px;
+$texteLg: 22px;
+
+.App{
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background: url("./image/background.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        background: $white;
+        height: 600px;
+        width: 850px;
+        border-radius: 48px;
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    }
+
+    .questionBox, .menu{
+        height: 100%;
+        padding: 180px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        //justify-content: space-around;
+    }
+
+    h1{
+        color: $blue-sea;
+        font-size: $titleLg;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
+
+    input{
+        padding: 12px 20px;
+        outline: transparent;
+        border-radius: 6px;
+        border: 2px solid $blue-sky;
+        box-sizing: border-box;
+        box-shadow: 0 10px 20px rgba(115, 113, 113, 0.1),0 3px 6px rgba(122, 120, 120, 0.05);
+    }
+
+    .btnStyle {
+        align-items: center;
+        background-color: $blue-sea;
+        background-image: linear-gradient($blue-sea, $blue-sky);
+        border-radius: 8px;
+        border-width: 0;
+        box-shadow: 0 10px 20px rgba(115, 113, 113, 0.1),0 3px 6px rgba(122, 120, 120, 0.05);
+        box-sizing: border-box;
+        color: $white;
+        cursor: pointer;
+        font-size: 18px;
+        height: 52px;
+        line-height: 1;
+        margin: 0;
+        outline: none;
+        overflow: hidden;
+        padding: 0 32px;
+        transform: translate3d(0, 0, 0);
+        transition: all 150ms;
+        vertical-align: baseline;
+        white-space: nowrap;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    button:hover {
+        box-shadow: $blue-sea 0 2px 8px;
+        opacity: .85;
+    }
+
+    button:active {
+        outline: 0;
+    }
+
+    button:focus {
+        box-shadow: $blue-sea
+    }
+
+
+    .speechBtn{
+        color: $blue;
+        height: 20px;
+        margin: 0 10px;
+    }
+
+    h1{
+        button{
+            border: none;
+            background: transparent;
+        }
+    }
+
+    .btnStyle button{
+        border: none;
+        background: transparent;
+        color: $white;
+
+    }
+
+}
+
+
+
