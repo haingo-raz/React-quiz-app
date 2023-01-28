@@ -3,7 +3,7 @@ $light-blue: #B9F3FC;
 $blue-sky: #AEE2FF;
 $blue-sea: #93C6E7;
 $blue: rgb(146, 146, 183);
-$pink: #FEDEFF;
+$pink: #d587c3;
 $white: #fff;
 
 
@@ -11,6 +11,19 @@ $white: #fff;
 $logoLg: 120px;
 $titleLg : 40px;
 $texteLg: 22px;
+$logoLg: 55px;
+
+
+//animation 
+@keyframes jumpShake {
+    0% { transform: translateX(0) }
+    25% { transform: translateY(-9px) }
+    35% { transform: translateY(-9px) rotate(17deg) }
+    55% { transform: translateY(-9px) rotate(-17deg) }
+    65% { transform: translateY(-9px) rotate(17deg) }
+    75% { transform: translateY(-9px) rotate(-17deg) }
+    100% { transform: translateY(0) rotate(0) }
+  }
 
 .App{
     height: 100vh;
@@ -22,12 +35,32 @@ $texteLg: 22px;
     align-items: center;
     justify-content: center;
 
+    .logo{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: $blue-sea;
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        font-size: $logoLg;
+        text-decoration: none;
+        background: $white;
+        animation: 4s infinite jumpShake;
+    }
+
     .container{
         background: $white;
+        position: relative;
         height: 600px;
         width: 850px;
         border-radius: 48px;
-        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        text-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    }
+
+    //back to menu
+    .backBtn{
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
 
     .questionBox, .menu{
@@ -37,6 +70,15 @@ $texteLg: 22px;
         display: flex;
         flex-direction: column;
         //justify-content: space-around;
+    }
+
+    //score
+    .questionBox span{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: $titleLg;
+        color: $blue-sea;
     }
 
     h1{
@@ -113,10 +155,19 @@ $texteLg: 22px;
         }
     }
 
+    //Menu buttons
+    .btnStyle a{
+        color: $white;
+        text-decoration: none;
+        padding: 15px 10px 15px 80px;
+    }
+
+    //Speech icons
     .btnStyle button{
         border: none;
         background: transparent;
         color: $white;
+        z-index: 2;
 
     }
 

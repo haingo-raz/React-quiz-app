@@ -1,6 +1,5 @@
 # Screenshots 
 
-
 # How to run it on your computer
 
 1. Clone the project using the command ```git clone https://github.com/haingo-raz/Quiz-app.git```
