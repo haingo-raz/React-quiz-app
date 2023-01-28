@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Say, SayButton } from 'react-say';
+import { SayButton } from 'react-say';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeUp, faPlus, faMinus, faXmark, faDivide } from "@fortawesome/free-solid-svg-icons";
-import Questions from './Questions';
-import Addition from './Addition';
+import audio from '../audio/button-pixabay.mp3';
 
 function Menu() {
+
+    const playClickAudio = () => {
+      new Audio(audio).play();
+    }
+
     return (
         <section className="menu">
           <h1>
@@ -20,45 +24,41 @@ function Menu() {
           </SayButton> 
           </h1>
 
-          <button className="btnStyle"><Link to="/addition">Addition </Link><FontAwesomeIcon icon={ faPlus } />
+          <Link to="/addition" className="btnStyle" onClick={playClickAudio}>Addition <FontAwesomeIcon icon={ faPlus } />
             <SayButton
               speak="Addition"
               rate={ 0.6 }
-              
             >
               <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </button>
+          </Link>
 
-          <button className="btnStyle"><Link to="/substraction">Substraction</Link> <FontAwesomeIcon icon={ faMinus } />
+          <Link to="/substraction" className="btnStyle" onClick={playClickAudio}>Substraction <FontAwesomeIcon icon={ faMinus } />
             <SayButton
               speak="Substraction"
               rate={ 0.6 }
-    
             >
               <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </button>
+          </Link>
 
-          <button className="btnStyle"><Link to="multiplication">Multiplication</Link> <FontAwesomeIcon icon={ faXmark } />
+          <Link to="multiplication" className="btnStyle" onClick={playClickAudio}>Multiplication<FontAwesomeIcon icon={ faXmark } />
             <SayButton
               speak="Multiplication"
               rate={ 0.6 }
-              
             >
               <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </button>
+          </Link>
 
-          <button className="btnStyle"><Link to="division">Division</Link> <FontAwesomeIcon icon={ faDivide} />
+          <Link to="division" className="btnStyle" onClick={playClickAudio}>Division <FontAwesomeIcon icon={ faDivide} />
             <SayButton
               speak="Division"
-              rate={ 0.6 }
-              
+              rate={ 0.6 }  
             >
               <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </button>
+          </Link>
       </section>
     );
 }
