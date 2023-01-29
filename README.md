@@ -1,10 +1,18 @@
 # Screenshots 
+## Menu
+![Menu](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/menu.png)
+
+## Info
+![Info](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/info.png)
+
+## Quiz
+![Quiz](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/quiz.png)
 
 # How to run it on your computer
 
-1. Clone the project using the command ```git clone https://github.com/haingo-raz/Quiz-app.git```
+1. Clone the project using the command ```git clone https://github.com/haingo-raz/quiz_app.git```
 
-1. Navigate to working directory `cd Quiz-app`
+1. Navigate to working directory `cd quiz_app`
 
 1. Run `npm install`
 

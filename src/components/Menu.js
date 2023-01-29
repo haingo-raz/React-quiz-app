@@ -4,6 +4,7 @@ import { SayButton } from 'react-say';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeUp, faPlus, faMinus, faXmark, faDivide } from "@fortawesome/free-solid-svg-icons";
 import audio from '../audio/button-pixabay.mp3';
+import './Menu.scss';
 
 function Menu() {
 
@@ -17,48 +18,64 @@ function Menu() {
           Choose an option: 
           <SayButton
               speak="Choose an option:"
-              rate={ 0.6 }
+              rate={ 0.8 }
               
           >
               <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
           </SayButton> 
           </h1>
 
-          <Link to="/addition" className="btnStyle" onClick={playClickAudio}>Addition <FontAwesomeIcon icon={ faPlus } />
+          <div className="menuItem">
+            <Link to="/addition" className="btnStyle" onClick={playClickAudio} tabIndex="0">
+              Addition &nbsp; <FontAwesomeIcon icon={ faPlus } />
+            </Link>
             <SayButton
-              speak="Addition"
-              rate={ 0.6 }
-            >
-              <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
+                speak="Addition"
+                rate={ 0.8 }
+                className="speechContainer"
+              >
+                <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </Link>
+          </div>
+          
 
-          <Link to="/substraction" className="btnStyle" onClick={playClickAudio}>Substraction <FontAwesomeIcon icon={ faMinus } />
+          <div className="menuItem">
+            <Link to="/subtraction" className="btnStyle" onClick={playClickAudio} tabIndex="0">
+              Subtraction &nbsp; <FontAwesomeIcon icon={ faMinus } />
+            </Link>
             <SayButton
-              speak="Substraction"
-              rate={ 0.6 }
-            >
-              <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
+                speak="Subtraction"
+                rate={ 0.8 }
+              >
+                <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </Link>
-
-          <Link to="multiplication" className="btnStyle" onClick={playClickAudio}>Multiplication<FontAwesomeIcon icon={ faXmark } />
+          </div>
+          
+          <div className="menuItem">
+            <Link to="multiplication" className="btnStyle" onClick={playClickAudio} tabIndex="0">
+                Multiplication &nbsp; <FontAwesomeIcon icon={ faXmark } />
+            </Link>
             <SayButton
-              speak="Multiplication"
-              rate={ 0.6 }
-            >
-              <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
+                speak="Multiplication"
+                rate={ 0.8 }
+              >
+                <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </Link>
-
-          <Link to="division" className="btnStyle" onClick={playClickAudio}>Division <FontAwesomeIcon icon={ faDivide} />
+          </div>
+          
+          <div className="menuItem">
+            <Link to="division" className="btnStyle" onClick={playClickAudio} tabIndex="0">
+              Division &nbsp; <FontAwesomeIcon icon={ faDivide} />
+            </Link>
             <SayButton
-              speak="Division"
-              rate={ 0.6 }  
-            >
-              <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
+                speak="Division"
+                rate={ 0.8 }  
+              >
+                <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
             </SayButton>
-          </Link>
+          </div>
+          
+          
       </section>
     );
 }

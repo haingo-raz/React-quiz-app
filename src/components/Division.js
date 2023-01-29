@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SayButton } from 'react-say';
 import winSound from '../audio/winSound.wav';
 import wrongSound from '../audio/wrongSound.mp3';
+import gameCompleted from '../audio/gameCompleted.mp3';
 import WinModal from './WinModal';
 
 
@@ -14,7 +15,7 @@ import WinModal from './WinModal';
 function Division(props) {
 
     const [score, setScore] = useState(0);
-    const [answerInput, setAnswerInput] = useState();
+    const [answerInput, setAnswerInput] = useState('');
     const [num1, setNum1] = useState(Math.floor( Math.random() * 20 / 2 ) * 2 + 10);
     const [num2, setNum2] = useState(2);
     const[showWinModal, setShowWinModal] = useState(false);
@@ -29,7 +30,11 @@ function Division(props) {
             setScore(score + 1); 
             toast.success("Correct!");
             playAudio(winSound);
-        } 
+        }
+        else if(answerInput == ''){
+            toast.warning("Input a number!");
+            return;
+        }
         else {
             toast.error("Wrong!");
             playAudio(wrongSound);
@@ -41,10 +46,11 @@ function Division(props) {
         //stop the game when the score reaches 10
         if(score == 9){
             setShowWinModal(true);
+            playAudio(gameCompleted);
         }
 
         //clear the form
-        setAnswerInput();
+        setAnswerInput('');
     }
 
     const playAudio = (sound) => {
@@ -76,7 +82,7 @@ function Division(props) {
                         type="text" 
                         htmlFor="answerInput" 
                         name="answerInput"
-                        defaultValue={answerInput}
+                        value={answerInput}
                         onChange={(e) => setAnswerInput(e.target.value)}
                         />
                     <a className="btnStyle" onClick={generateOperation}>Check answer

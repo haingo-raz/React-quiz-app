@@ -1,0 +1,25 @@
+@import '../App.scss';
+
+h1{
+    margin-bottom: 10px;
+}
+
+.menuItem{
+    display: flex;
+    flex-wrap:unset;
+    margin-bottom: 15px;
+    gap: 10px;
+    
+    .btnStyle{
+        flex-basis: 100%;
+    }
+}
+
+
+.menuItem{
+    button{
+        border: none;
+        background: transparent;
+        color: $white;
+    }
+}

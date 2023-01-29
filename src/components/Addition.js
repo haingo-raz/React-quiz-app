@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SayButton } from 'react-say';
 import winSound from '../audio/winSound.wav';
 import wrongSound from '../audio/wrongSound.mp3';
+import gameCompleted from '../audio/gameCompleted.mp3';
 import WinModal from './WinModal';
 
 
@@ -14,10 +15,11 @@ import WinModal from './WinModal';
 function Addition(props) {
 
     const [score, setScore] = useState(0);
-    const [answerInput, setAnswerInput] = useState();
+    const [answerInput, setAnswerInput] = useState('');
     const [num1, setNum1] = useState(Math.floor(Math.random() * 10));
     const [num2, setNum2] = useState(Math.floor(Math.random() * 10));
     const[showWinModal, setShowWinModal] = useState(false);
+   
     
 
     const generateOperation = (e) => {
@@ -31,6 +33,10 @@ function Addition(props) {
             toast.success("Correct!");
             playAudio(winSound);
         } 
+        else if(answerInput == ''){
+            toast.warning("Input a number!");
+            return;
+        }
         else {
             toast.error("Wrong!");
             playAudio(wrongSound);
@@ -43,10 +49,11 @@ function Addition(props) {
         //stop the game when the score reaches 10
         if(score == 9){
             setShowWinModal(true);
+            playAudio(gameCompleted);
         }
 
         //clear the form
-        setAnswerInput();
+        setAnswerInput('');
     }
 
     const playAudio = (sound) => {
@@ -79,14 +86,13 @@ function Addition(props) {
                         type="text" 
                         htmlFor="answerInput" 
                         name="answerInput"
-                        defaultValue={answerInput}
+                        value={answerInput}
                         onChange={(e) => setAnswerInput(e.target.value)}
                         />
                     <a className="btnStyle" onClick={generateOperation}>Check answer
                         <SayButton
-                            speak= "Check answer"
+                            speak= "Check Answer"
                             rate={ 0.6 }
-                            
                             >
                             <FontAwesomeIcon  className="speechBtn" icon={faVolumeUp} />
                         </SayButton>
