@@ -1,14 +1,21 @@
-# Screenshots 
-## Menu
+## Demo link
+[Quiz app](https://simple-math-app.netlify.app/)
+
+## Technology used 
+- ReactJS
+- SCSS
+
+## Screenshots 
+### Menu
 ![Menu](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/menu.png)
 
-## Info
+### Info
 ![Info](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/info.png)
 
-## Quiz
+### Quiz
 ![Quiz](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/quiz.png)
 
-# How to run it on your computer
+## How to run it on your computer
 
 1. Clone the project using the command ```git clone https://github.com/haingo-raz/quiz_app.git```
 
