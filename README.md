@@ -17,7 +17,7 @@
 
 ## How to run it on your computer
 
-1. Clone the project using the command ```git clone https://github.com/haingo-raz/quiz_app.git```
+1. Clone the project using the command ```git clone https://github.com/haingo-raz/React-quiz-app.git```
 
 1. Navigate to working directory `cd quiz_app`
 
