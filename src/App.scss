@@ -63,15 +63,25 @@ $logoLg: 55px;
         animation: 4s infinite jumpShake;
     }
 
-    .info {
+    .info, .login {
         position: absolute;
         top: 20px;
-        right: 20px;
         color: $blue-sea;
         background: $white;
         font-size: 30px;
         padding: 3px 8px;
         animation: 4s infinite jumpShake;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .info {
+        right: 20px;
+    }
+
+    .login {
+        right: 80px;
     }
 
     .container {

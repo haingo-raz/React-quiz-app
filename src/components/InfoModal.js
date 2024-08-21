@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import click from '../audio/button-pixabay.mp3';
-import './InfoModal.scss';
+import './Modal.scss';
 
 function InfoModal({ onClose }) {
-    const playAudio = (sound) => {
-        new Audio(sound).play();
-    };
 
     return (
         <>
