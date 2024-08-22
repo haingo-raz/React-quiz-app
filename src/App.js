@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -18,27 +18,39 @@ function App() {
   const toggleModal = () => {
     setShowInfoModal(!showInfoModal);
   }
+  const [loggedInUser, setLoggedInUser] = useState('');
+
+  const user = localStorage.getItem('username');
+  useEffect(() => {
+    setLoggedInUser(user);
+  }, [user]);
+
+  const onLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      localStorage.removeItem('username');
+      setLoggedInUser('');
+    }
+  }
 
   return (
     <div className="App">
       <Link to="/" className="logo">Quiz app</Link>
-      <div className="info" onClick={toggleModal} title="help">
-        <FontAwesomeIcon icon={faInfoCircle} />
+      <div className="options">
+        {loggedInUser && <span>hi {loggedInUser}!</span>}
+        <div className="info" onClick={toggleModal} title="help">
+          <FontAwesomeIcon icon={faInfoCircle} />
+        </div>
+        { loggedInUser ? <button className="btnStyle" onClick={onLogout}>Logout</button> :
+        <Link to="/login">
+          <div className="login" title="Log in to save your scores and performance">
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        </Link>
+        }
       </div>
       {showInfoModal &&
         <InfoModal onClose={toggleModal}/>
       }
-      <Link to="/login">
-        <div className="login" title="Log in to save your scores and performance">
-          <FontAwesomeIcon icon={faUser} />
-        </div>
-      </Link>
-
-      <Link to="/signup">
-        <div className="signUp" title="Create an account">
-          <FontAwesomeIcon icon={faUser} />
-        </div>
-      </Link>
 
       <div className="container">
         <Routes>

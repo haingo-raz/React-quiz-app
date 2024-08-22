@@ -27,7 +27,7 @@ function Multiplication(props) {
             setScore(score + 1);
             toast.success("Correct!");
             playAudio(winSound);
-        } else if (answerInput == '') {
+        } else if (answerInput === '') {
             toast.warning("Input a number!");
             return;
         } else {

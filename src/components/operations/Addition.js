@@ -40,7 +40,7 @@ function Addition(props) {
         setNum2(Math.floor(Math.random() * 10));
 
         //stop the game when the score reaches 10
-        if (score == 9) {
+        if (score === 9) {
             setShowWinModal(true);
             playAudio(gameCompleted);
         }

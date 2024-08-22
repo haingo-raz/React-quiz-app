@@ -6,6 +6,12 @@
 - SCSS
 
 ## Screenshots 
+### Sign up
+![SignUp](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/signu[].png)
+
+### Login
+![Login](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/login.png)
+
 ### Menu
 ![Menu](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/menu.png)
 

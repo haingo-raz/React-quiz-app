@@ -63,9 +63,15 @@ $logoLg: 55px;
         animation: 4s infinite jumpShake;
     }
 
-    .info, .login {
+    .options {
         position: absolute;
         top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .info, .login {
         color: $blue-sea;
         background: $white;
         font-size: 30px;
@@ -74,14 +80,6 @@ $logoLg: 55px;
         &:hover {
             cursor: pointer;
         }
-    }
-
-    .info {
-        right: 20px;
-    }
-
-    .login {
-        right: 80px;
     }
 
     .container {
@@ -127,11 +125,12 @@ $logoLg: 55px;
         font-size: $titleLg;
     }
 
-    form {
+    .questionBox form {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         height: 100%;
+        position: relative;
     }
 
     input {

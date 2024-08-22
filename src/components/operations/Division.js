@@ -23,11 +23,11 @@ function Division(props) {
         let result = num1 / num2;
 
         //if the answer is correct, increase score and change operations
-        if (answerInput == result) {
+        if (answerInput === result) {
             setScore(score + 1);
             toast.success("Correct!");
             playAudio(winSound);
-        } else if (answerInput == '') {
+        } else if (answerInput === '') {
             toast.warning("Input a number!");
             return;
         } else {
