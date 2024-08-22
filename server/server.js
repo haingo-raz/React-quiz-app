@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 
 app.post("/signup", register)
 app.post("/login", login)
+app.post("/save", saveGame)
 
 function register(req, res) {
     const userInfo = req.body;
@@ -23,6 +24,16 @@ function register(req, res) {
 function login(req, res) {
     const userInfo = req.body;
     db.login(userInfo).then((response) => {
+        res.send(response);
+    }).catch((error) => {
+        console.error(error)
+        res.json(error)
+    })
+}
+
+function saveGame(req, res) {
+    const gameData = req.body;
+    db.saveGame(gameData).then((response) => {
         res.send(response);
     }).catch((error) => {
         console.error(error)

@@ -6,6 +6,7 @@ AWS.config.update({region:'us-east-1'});
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const usersTable = 'maths_user_credentials';
+const resultsTable = 'maths_result';
 
 async function register(userInfo){
     const username = userInfo.username;
@@ -109,5 +110,18 @@ async function login(userInfo){
     }
 }
 
+async function saveGame(gameData){
+    const params = {
+        TableName: resultsTable,
+        Item: gameData
+    }
+    return await dynamodb.put(params).promise().then(() => {
+        return true;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 module.exports.register = register;
 module.exports.login = login;
+module.exports.saveGame = saveGame;
