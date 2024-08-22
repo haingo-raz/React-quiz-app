@@ -122,6 +122,28 @@ async function saveGame(gameData){
     });
 }
 
+async function getStats(gameType, user){
+    const params = {
+        TableName: resultsTable,
+        FilterExpression: "#gameType = :gameType and #user = :user",
+        ExpressionAttributeNames: {
+            "#gameType": "gameType",
+            "#user": "user"
+        },
+        ExpressionAttributeValues: {
+            ":gameType": gameType,
+            ":user": user
+        }
+    }
+
+    return await dynamodb.scan(params).promise().then((data) => {
+        return data.Items;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 module.exports.register = register;
 module.exports.login = login;
 module.exports.saveGame = saveGame;
+module.exports.getStats = getStats;

@@ -39,6 +39,7 @@ function Subtraction(props) {
             gameType,
             gameTime,
             wrongAnswerCount,
+            accuracy: (score / (score + wrongAnswerCount)) * 100,
             score
         }
         try {

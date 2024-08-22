@@ -1,7 +1,7 @@
 ## Demo link
 [Quiz app](https://simple-math-app.netlify.app/)
 
-## Technology used 
+## Technologies used 
 ### Client
 - ReactJS
 - SCSS
@@ -26,14 +26,29 @@
 ### Quiz
 ![Quiz](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/quiz.png)
 
+### Statistics
+![Statistics](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics.png)
+
 ## How to run it on your computer
+1. Clone the project using the command `git clone https://github.com/haingo-raz/React-quiz-app.git`
 
-1. Clone the project using the command ```git clone https://github.com/haingo-raz/React-quiz-app.git```
+2. Navigate to the working directory `cd quiz_app`
 
-1. Navigate to working directory `cd quiz_app`
-
+### Client
 1. Run `npm install`
 
-1. Run `npm start`
+2. Run `npm start`
 
-1. Open `localhost:3000` (insert your chosen port)
+3. Open `localhost:3000` (insert your chosen port)
+
+### Server
+1. AWS should be set up with the project. I have created two DynamoDB tables named `maths_user_credentials` and `maths_result` to respectively save the user credentials and the game statistics.
+
+2. Navigate to the server directory `cd server`
+
+3. Run `npm start` to download the required packages
+
+4. Run `npm run dev` to start the server
+
+5. The server can be accessed at http://localhost:8080
+
