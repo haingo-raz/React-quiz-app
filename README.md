@@ -2,12 +2,17 @@
 [Quiz app](https://simple-math-app.netlify.app/)
 
 ## Technology used 
+### Client
 - ReactJS
 - SCSS
 
+### Server
+- Node.js / Express
+- AWS DynamoDB
+
 ## Screenshots 
 ### Sign up
-![SignUp](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/signu[].png)
+![SignUp](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/signup.png)
 
 ### Login
 ![Login](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/login.png)
