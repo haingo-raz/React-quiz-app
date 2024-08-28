@@ -29,7 +29,7 @@ This demo only shows the game operations. It does not include the server created
 
 ### Statistics
 ![Statistics Addition](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics-addition.png)
-![Statistics Subtraction](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics-addition-subtraction.png)
+![Statistics Subtraction](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics-subtraction.png)
 
 ### DynamoDB tables
 #### User credentials
