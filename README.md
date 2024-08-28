@@ -2,6 +2,9 @@
 This demo only shows the game operations. It does not include the server created with Node.js and DynamoDB.
 [Quiz app](https://simple-math-app.netlify.app/)
 
+## About 
+This project is a simple mathematics quiz app where users can register for an account, login, play games, and track their performance over time. The app includes problems involving addition, subtraction, division, and multiplication.
+
 ## Technologies used
 ### Client
 - ReactJS
