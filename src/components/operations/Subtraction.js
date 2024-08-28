@@ -25,13 +25,6 @@ function Subtraction(props) {
 
     const loggedInUser = localStorage.getItem('username');
 
-    // Save the current game state when the component unmounts
-    // useEffect(() => {
-    //     return () => {
-    //         saveGame();
-    //     };
-    // }, []);
-
     const saveGame = async () => {
         const gameData = {
             id: gameId,
@@ -73,7 +66,7 @@ function Subtraction(props) {
         setNum2(Math.floor(Math.random() * 10));
 
         //stop the game when the score reaches 10
-        if (score === 10) {
+        if (score === 9) {
             setShowWinModal(true);
             playAudio(gameCompleted);
             saveGame()

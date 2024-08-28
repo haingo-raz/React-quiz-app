@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeUp, faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +9,7 @@ import winSound from '../../audio/winSound.wav';
 import wrongSound from '../../audio/wrongSound.mp3';
 import gameCompleted from '../../audio/gameCompleted.mp3';
 import WinModal from '../WinModal';
+import axios from 'axios';
 
 function Multiplication(props) {
     const [score, setScore] = useState(0);
@@ -17,13 +18,37 @@ function Multiplication(props) {
     const [num2, setNum2] = useState(Math.floor(Math.random() * 10));
     const [showWinModal, setShowWinModal] = useState(false);
 
+    const [wrongAnswerCount, setWrongAnswerCount] = useState(0);
+    const gameType = 'multiplication';
+    const gameId = Math.floor(Math.random() * 15000);
+    const gameTime =  new Date().toLocaleString();
+
+    const loggedInUser = localStorage.getItem('username');
+
+    const saveGame = async () => {
+        const gameData = {
+            id: gameId,
+            user: loggedInUser,
+            gameType,
+            gameTime,
+            wrongAnswerCount,
+            accuracy: (score / (score + wrongAnswerCount)) * 100,
+            score
+        }
+        try {
+            await axios.post('http://localhost:8080/save', gameData)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const generateOperation = (e) => {
         e.preventDefault();
 
         let result = num1 * num2;
 
         //if the answer is correct, increase score and change operations
-        if (answerInput === result) {
+        if (parseInt(answerInput) === result) {
             setScore(score + 1);
             toast.success("Correct!");
             playAudio(winSound);
@@ -33,6 +58,7 @@ function Multiplication(props) {
         } else {
             toast.error("Wrong!");
             playAudio(wrongSound);
+            setWrongAnswerCount(wrongAnswerCount + 1);
             return;
         }
 
@@ -43,6 +69,7 @@ function Multiplication(props) {
         if (score === 9) {
             setShowWinModal(true);
             playAudio(gameCompleted);
+            saveGame()
         }
 
         //clear the form
