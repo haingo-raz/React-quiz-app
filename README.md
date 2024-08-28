@@ -1,7 +1,8 @@
 ## Demo link
+This demo only shows the game operations. It does not include the server created with Node.js and DynamoDB.
 [Quiz app](https://simple-math-app.netlify.app/)
 
-## Technologies used 
+## Technologies used
 ### Client
 - ReactJS
 - SCSS
@@ -10,7 +11,7 @@
 - Node.js / Express
 - AWS DynamoDB
 
-## Screenshots 
+## Screenshots
 ### Sign up
 ![SignUp](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/signup.png)
 
@@ -27,7 +28,14 @@
 ![Quiz](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/quiz.png)
 
 ### Statistics
-![Statistics](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics.png)
+![Statistics Addition](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics-addition.png)
+![Statistics Subtraction](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/statistics-addition-subtraction.png)
+
+### DynamoDB tables
+#### User credentials
+![User credentials](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/DynamoDB-users.png)
+#### Game statistics
+![Game details](https://raw.githubusercontent.com/haingo-raz/quiz_app/master/public/UI/DynamoDB-game.png)
 
 ## How to run it on your computer
 1. Clone the project using the command `git clone https://github.com/haingo-raz/React-quiz-app.git`
@@ -51,4 +59,3 @@
 4. Run `npm run dev` to start the server
 
 5. The server can be accessed at http://localhost:8080
-
