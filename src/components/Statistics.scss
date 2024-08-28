@@ -1,5 +1,17 @@
+@import "../App.scss";
+
 .stats-page{
     height: inherit;
     width: inherit;
+    padding: 15px 10px;
+}
+
+.stats-options{
+    display: flex;
+    gap: 5px;
     padding: 10px;
+}
+
+.active{
+    background: $dark-blue !important;
 }

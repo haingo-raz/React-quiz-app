@@ -5,17 +5,18 @@ import './Statistics.scss';
 
 function Statistics(props) {
     const [data, setData] = useState([]);
+    const [operation, setOperation] = useState('addition');
     const loggedInUser = localStorage.getItem('username');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/getstats/subtraction?user=${loggedInUser}`);
+                const response = await axios.get(`http://localhost:8080/getstats/${operation}?user=${loggedInUser}`);
                 const gameData = response.data;
 
-                // Filter and calculate accuracy for "subtraction" game type
+                // Filter and calculate accuracy
                 const filteredData = gameData
-                    .filter(session => session.gameType === 'subtraction')
+                    .filter(session => session.gameType === operation)
                     .map(session => {
                         const totalAnswers = session.score + session.wrongAnswerCount;
                         const calculatedAccuracy = (session.score / totalAnswers) * 100;
@@ -23,7 +24,8 @@ function Statistics(props) {
                             gameTime: session.gameTime,
                             accuracy: session.accuracy ?? calculatedAccuracy,
                         };
-                    });
+                    })
+                    .sort((a, b) => new Date(a.gameTime) - new Date(b.gameTime));
 
                 setData(filteredData);
             } catch (error) {
@@ -32,12 +34,22 @@ function Statistics(props) {
         };
 
         fetchData();
-    }, [loggedInUser]);
+    }, [loggedInUser, operation]);
+
+    const handleButtonClick = (selectedOperation) => {
+        setOperation(selectedOperation);
+    };
 
     return (
         <div className="stats-page">
-            <h1>Accuracy per game for subtraction</h1>
-            <ResponsiveContainer width="90%" height="80%">
+            <div className="stats-options">
+                <button className={`btnStyle ${operation === 'addition' ? 'active' : ''}`} onClick={() => handleButtonClick('addition')}>Addition</button>
+                <button className={`btnStyle ${operation === 'subtraction' ? 'active' : ''}`} onClick={() => handleButtonClick('subtraction')}>Subtraction</button>
+                <button className={`btnStyle ${operation === 'multiplication' ? 'active' : ''}`} onClick={() => handleButtonClick('multiplication')}>Multiplication</button>
+                <button className={`btnStyle ${operation === 'division' ? 'active' : ''}`} onClick={() => handleButtonClick('division')}>Division</button>
+            </div>
+            <h1>Accuracy per game for {operation}</h1>
+            <ResponsiveContainer width="90%" height="75%">
                 <LineChart
                     width={500}
                     height={300}
